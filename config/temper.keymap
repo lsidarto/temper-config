@@ -161,7 +161,7 @@ ZMK_BEHAVIOR(boot, tap_dance,
     bindings = <&none>, <&bootloader>;
 )
 
-ZMK_CONDITIONAL_LAYER("cond",NUM FUN, SYS)
+ZMK_CONDITIONAL_LAYER(SYS,NUM FUN, SYS)
 
 ZMK_LAYER(Dvorak,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
