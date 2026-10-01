@@ -12,6 +12,6 @@ manifest:
     - name: zmk-nodefree-config
       url: https://github.com/urob/zmk-nodefree-config.git
       path: config/zmk-nodefree-config
-      revision: v0.3
+      revision: main
   self:
     path: config
