@@ -165,9 +165,9 @@ ZMK_CONDITIONAL_LAYER(SYS,NUM FUN, SYS)
 
 ZMK_LAYER(Dvorak,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      &bt BT_CLR     &kp COMMA      &kp DOT        &kp P         &sys_reset             &kp F         &kp G         &kp C         &kp R         &kp L
+      &bt BT_CLR     &kp COMMA      &kp DOT        &kp P         &kp I             &kp F         &kp G         &kp C         &kp R         &kp L
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &out OUT_TOG   &hml LALT O  &hml LCTRL E  &hml LSHFT U      &bootloader             &kp D     &hmr RSHFT H  &hmr RCTRL T   &hmr RALT N   &hmr RGUI S
+     &out OUT_TOG   &hml LALT O  &hml LCTRL E  &hml LSHFT U      &kp A             &kp D     &hmr RSHFT H  &hmr RCTRL T   &hmr RALT N   &hmr RGUI S
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &ext_power EP_ON      &kp Q         &kp J         &kp K         &kp X             &kp B         &kp M         &kp W         &kp V         &kp Z
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
