@@ -186,7 +186,7 @@ ZMK_LAYER(base,
                                    &kp ESC     &shift_word   &smart_space        &bs_del    &lt NUM ENTER   &smart_tab
 //                                 esc         shft/caps     space/period       back/del    &lt NUM/ENTER   tab/tilde/grave/FUN
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-)  , &kp EQUAL
+) 
 
 ZMK_LAYER(numpad,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
