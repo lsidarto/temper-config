@@ -1,6 +1,5 @@
 /*
  * https://github.com/zmkfirmware/zmk/blob/main/app/include/dt-bindings/zmk/keys.h
- * symbols not mapped: |`~
  */
 
 #include <behaviors.dtsi>
@@ -47,7 +46,7 @@
 #define COMBO_TERM_SLOW 50
 
 // left and right bracket [ ]
-ZMK_COMBO(lbktlt, &kp LBKT, LT2 LT3, DEF NUM, COMBO_TERM_FAST)
+ZMK_COMBO(lbkt, &kp LBKT, LT2 LT3, DEF NUM, COMBO_TERM_FAST)
 ZMK_COMBO(rbkt, &kp RBKT, LT1 LT2, DEF NUM, COMBO_TERM_FAST)
 
 // left and right right brace { }
@@ -59,12 +58,12 @@ ZMK_COMBO(lt, &kp LT, LB2 LB3, DEF, COMBO_TERM_FAST)
 ZMK_COMBO(gt, &kp GT, LB1 LB2, DEF, COMBO_TERM_FAST)
 
 // dash and underscore - _ 
-ZMK_COMBO(dash, &kp MINUS, RB1 RB2, DEF NUM, COMBO_TERM_FAST)
+ZMK_COMBO(minus, &kp MINUS, RB1 RB2, DEF NUM, COMBO_TERM_FAST)
 ZMK_COMBO(under, &kp UNDER, RB2 RB3, DEF NUM, COMBO_TERM_FAST)
 
-// macOS shift space left and right
-ZMK_COMBO(workspace_left,  &kp LC(LEFT),  RM3 RM2, NUM FUN, COMBO_TERM_FAST)
-ZMK_COMBO(workspace_right, &kp LC(RIGHT), RM2 RM1, NUM FUN, COMBO_TERM_FAST)
+// mac jump left and right 1 word
+ZMK_COMBO(workspace_left,  &kp LA(LEFT),  RM3 RM2, NUM FUN, COMBO_TERM_FAST)
+ZMK_COMBO(workspace_right, &kp LA(RIGHT), RM2 RM1, NUM FUN, COMBO_TERM_FAST)
 
 // slash and backslash
 ZMK_COMBO(bksl, &kp BACKSLASH, RT3 RT2, DEF NUM, COMBO_TERM_FAST)
@@ -87,20 +86,18 @@ ZMK_COMBO(ast, &kp KP_ASTERISK, RT2 RM2, DEF, COMBO_TERM_FAST)
 ZMK_COMBO(lpar, &kp LPAR, RT3 RM3, DEF, COMBO_TERM_FAST)
 ZMK_COMBO(rpar, &kp RPAR, RT4 RM4, DEF, COMBO_TERM_FAST)
 
-// mac jump left and right 1 word
-ZMK_BEHAVIOR(larr, macro,
-    wait-ms = <0>;
-    tap-ms = <5>;
-    bindings = <&kp LALT &kp LEFT>;
-)
-ZMK_BEHAVIOR(rarr, macro,
-    wait-ms = <0>;
-    tap-ms = <5>;
-    bindings = <&kp RALT &kp RIGHT>;
-)
-ZMK_COMBO(left_arrow,  &larr, RM2 RM1, DEF NUM, COMBO_TERM_FAST)
-ZMK_COMBO(right_arrow, &rarr, RM3 RM2, DEF NUM, COMBO_TERM_FAST)
-
+//ZMK_BEHAVIOR(larr, macro,
+//    wait-ms = <0>;
+//    tap-ms = <5>;
+//    bindings = <&kp LALT &kp LEFT>;
+//)
+//ZMK_BEHAVIOR(rarr, macro,
+//   wait-ms = <0>;
+//    tap-ms = <5>;
+//    bindings = <&kp RALT &kp RIGHT>;
+//)
+//ZMK_COMBO(left_arrow,  &larr, RM2 RM1, DEF NUM, COMBO_TERM_FAST)
+//ZMK_COMBO(right_arrow, &rarr, RM3 RM2, DEF NUM, COMBO_TERM_FAST)
 
 // ----------- KEYMAP -----------
 
@@ -119,13 +116,13 @@ MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 // tap: sticky shift | shift + tap or double-tap: caps word | hold: num (unused)
-#define smart_shift smart_shift_inner NUM 0
-ZMK_BEHAVIOR(smart_shift_inner, hold_tap,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&shift_word>;
-)
+//#define smart_shift smart_shift_inner NUM 0
+//ZMK_BEHAVIOR(smart_shift_inner, hold_tap,
+//    flavor = "balanced";
+//    tapping-term-ms = <200>;
+//    quick-tap-ms = <QUICK_TAP_MS>;
+//    bindings = <&mo>, <&shift_word>;
+//)
 ZMK_BEHAVIOR(shift_word, mod_morph,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <MOD_LSFT>;
@@ -210,7 +207,6 @@ ZMK_LAYER(numpad,
 )
 
 ZMK_LAYER(Function,
-//symbols
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       &kp PG_UP     &kp HOME       &kp UP        &kp END         XXX                XXX           XXX           XXX           XXX           XXX
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -224,13 +220,13 @@ ZMK_LAYER(Function,
 
 ZMK_LAYER(System,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &boot       &bt BT_PRV    &kp C_PREV   &kp C_VOL_UP  &kp C_BRI_INC           XXX       &kp F7         &kp F8       &kp F9        &kp F12
+        &boot       &bt BT_PRV    &kp C_PREV   &kp C_VOL_UP  &kp C_BRI_INC         XXX       &kp F7         &kp F8       &kp F9        &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &out OUT_BLE   &bt BT_CLR    &kp C_PP     &kp C_MUTE    &kp C_BRI_DEC       XXX            &kp F4         &kp F5       &kp F6        &kp F11
+     &out OUT_BLE   &bt BT_CLR    &kp C_PP     &kp C_MUTE    &kp C_BRI_DEC         XXX       &kp F4         &kp F5       &kp F6        &kp F11
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &out OUT_USB   &bt BT_NXT    &kp C_NEXT   &kp C_VOL_DN     XXX           XXX               &kp F1         &kp F2       &kp F3        &kp F10
+     &out OUT_USB   &bt BT_NXT    &kp C_NEXT   &kp C_VOL_DN     XXX                XXX       &kp F1         &kp F2       &kp F3        &kp F10
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                     XXX           XXX           XXX               XXX           XXX           XXX
+                                     XXX           XXX           ___               ___           XXX           XXX
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
