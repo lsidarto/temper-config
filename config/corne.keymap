@@ -9,8 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEF 0
-#define NUM 1
-#define FUN 2
+#define MAC 1
+#define WIN 2
 #define SYS 3
 
 #define XXX &none
@@ -46,32 +46,32 @@
 #define COMBO_TERM_SLOW 50
 
 // left and right bracket [ ]
-ZMK_COMBO(lbkt, &kp LBKT, LT2 LT3, DEF NUM, COMBO_TERM_FAST)
-ZMK_COMBO(rbkt, &kp RBKT, LT1 LT2, DEF NUM, COMBO_TERM_FAST)
+ZMK_COMBO(lbkt, &kp LBKT, LT2 LT3, DEF MAC, COMBO_TERM_FAST)
+ZMK_COMBO(rbkt, &kp RBKT, LT1 LT2, DEF MAC, COMBO_TERM_FAST)
 
 // left and right right brace { }
-ZMK_COMBO(lbrc, &kp LBRC, LM2 LM3, DEF NUM, COMBO_TERM_FAST)
-ZMK_COMBO(rbrc, &kp RBRC, LM1 LM2, DEF NUM, COMBO_TERM_FAST)
+ZMK_COMBO(lbrc, &kp LBRC, LM2 LM3, DEF MAC, COMBO_TERM_FAST)
+ZMK_COMBO(rbrc, &kp RBRC, LM1 LM2, DEF MAC, COMBO_TERM_FAST)
 
-// left and right less-then and greater-then < >
-ZMK_COMBO(lt, &kp LT, LB2 LB3, DEF, COMBO_TERM_FAST)
-ZMK_COMBO(gt, &kp GT, LB1 LB2, DEF, COMBO_TERM_FAST)
+// parentheses ()
+ZMK_COMBO(lpar, &kp LPAR, LB2 LB3, DEF, COMBO_TERM_FAST)
+ZMK_COMBO(rpar, &kp RPAR, LB1 LB2, DEF, COMBO_TERM_FAST)
 
 // dash and underscore - _ 
-ZMK_COMBO(minus, &kp MINUS, RB1 RB2, DEF NUM, COMBO_TERM_FAST)
-ZMK_COMBO(under, &kp UNDER, RB2 RB3, DEF NUM, COMBO_TERM_FAST)
+ZMK_COMBO(minus, &kp MINUS, RB1 RB2, DEF MAC, COMBO_TERM_FAST)
+ZMK_COMBO(under, &kp UNDER, RB2 RB3, DEF MAC, COMBO_TERM_FAST)
 
 // mac jump left and right 1 word
-ZMK_COMBO(workspace_left,  &kp LA(LEFT),  RM3 RM2, NUM FUN, COMBO_TERM_FAST)
-ZMK_COMBO(workspace_right, &kp LA(RIGHT), RM2 RM1, NUM FUN, COMBO_TERM_FAST)
+ZMK_COMBO(workspace_left,  &kp LA(LEFT),  RM2 RM1, DEF MAC, COMBO_TERM_FAST)
+ZMK_COMBO(workspace_right, &kp LA(RIGHT), RM3 RM2, DEF MAC, COMBO_TERM_FAST)
 
 // slash and backslash
-ZMK_COMBO(bksl, &kp BACKSLASH, RT3 RT2, DEF NUM, COMBO_TERM_FAST)
-ZMK_COMBO(sl, &kp SLASH, RT2 RT1, DEF NUM, COMBO_TERM_FAST)
+ZMK_COMBO(bksl, &kp BACKSLASH, RT3 RT2, DEF MAC, COMBO_TERM_FAST)
+ZMK_COMBO(sl, &kp SLASH, RT2 RT1, DEF MAC, COMBO_TERM_FAST)
 
 // ? and "
-ZMK_COMBO(question, &kp QUESTION, RT1 RT0, DEF NUM, COMBO_TERM_FAST)
-ZMK_COMBO(dqt, &kp DQT, RM1 RM0, DEF NUM, COMBO_TERM_FAST)
+ZMK_COMBO(question, &kp QUESTION, RT1 RT0, DEF MAC, COMBO_TERM_FAST)
+ZMK_COMBO(dqt, &kp DQT, RM1 RM0, DEF MAC, COMBO_TERM_FAST)
 
 // symbols on vert
 ZMK_COMBO(excl, &kp EXCL, LT4 LM4, DEF, COMBO_TERM_FAST)
@@ -83,8 +83,8 @@ ZMK_COMBO(perc, &kp PERCENT, LT0 LM0, DEF, COMBO_TERM_FAST)
 ZMK_COMBO(caret, &kp CARET, RT0 RM0, DEF, COMBO_TERM_FAST)
 ZMK_COMBO(amper, &kp AMPERSAND, RT1 RM1, DEF, COMBO_TERM_FAST)
 ZMK_COMBO(ast, &kp KP_ASTERISK, RT2 RM2, DEF, COMBO_TERM_FAST)
-ZMK_COMBO(lpar, &kp LPAR, RT3 RM3, DEF, COMBO_TERM_FAST)
-ZMK_COMBO(rpar, &kp RPAR, RT4 RM4, DEF, COMBO_TERM_FAST)
+//ZMK_COMBO(lpar, &kp LPAR, RT3 RM3, DEF, COMBO_TERM_FAST)
+//ZMK_COMBO(rpar, &kp RPAR, RT4 RM4, DEF, COMBO_TERM_FAST)
 
 //ZMK_BEHAVIOR(larr, macro,
 //    wait-ms = <0>;
@@ -96,8 +96,8 @@ ZMK_COMBO(rpar, &kp RPAR, RT4 RM4, DEF, COMBO_TERM_FAST)
 //    tap-ms = <5>;
 //    bindings = <&kp RALT &kp RIGHT>;
 //)
-//ZMK_COMBO(left_arrow,  &larr, RM2 RM1, DEF NUM, COMBO_TERM_FAST)
-//ZMK_COMBO(right_arrow, &rarr, RM3 RM2, DEF NUM, COMBO_TERM_FAST)
+//ZMK_COMBO(left_arrow,  &larr, RM2 RM1, DEF MAC, COMBO_TERM_FAST)
+//ZMK_COMBO(right_arrow, &rarr, RM3 RM2, DEF MAC, COMBO_TERM_FAST)
 
 // ----------- KEYMAP -----------
 
@@ -115,8 +115,8 @@ ZMK_COMBO(rpar, &kp RPAR, RT4 RM4, DEF, COMBO_TERM_FAST)
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
-// tap: sticky shift | shift + tap or double-tap: caps word | hold: num (unused)
-//#define smart_shift smart_shift_inner NUM 0
+// tap: sticky shift | shift + tap or double-tap: caps word | hold: MAC (unused)
+//#define smart_shift smart_shift_inner MAC 0
 //ZMK_BEHAVIOR(smart_shift_inner, hold_tap,
 //    flavor = "balanced";
 //    tapping-term-ms = <200>;
@@ -159,8 +159,8 @@ ZMK_BEHAVIOR(dot_space, macro,
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
 
-// tap: TAB | control + tap: TILDE | control + shift + tap: GRAVE | hold: func layer
-#define smart_tab smart_tab_inner FUN 0
+// tap: TAB | control + tap: TILDE | control + shift + tap: GRAVE | hold: WINc layer
+#define smart_tab smart_tab_inner WIN 0
 ZMK_BEHAVIOR(smart_tab_inner, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
@@ -179,7 +179,7 @@ ZMK_BEHAVIOR(boot, tap_dance,
     bindings = <&none>, <&bootloader>;
 )
 
-ZMK_CONDITIONAL_LAYER(SYS,NUM FUN, SYS)
+ZMK_CONDITIONAL_LAYER(SYS,MAC WIN, SYS)
 
 ZMK_LAYER(base,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -189,12 +189,24 @@ ZMK_LAYER(base,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M       &kp COMMA      &kp DOT     &colon_semi
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                   &kp ESC     &shift_word   &smart_space        &bs_del    &lt NUM ENTER   &smart_tab
-//                                 esc        shft/caps/NUM  space/period       back/del    &lt NUM/ENTER   tab/tilde/grave/FUN
+                                   &kp ESC     &shift_word   &smart_space        &bs_del    &lt MAC ENTER   &smart_tab
+//                                 esc        shft/caps/MAC  space/period       back/del    &lt MAC/ENTER   tab/tilde/grave/WIN
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 ) 
 
-ZMK_LAYER(numpad,
+ZMK_LAYER(mac,
+// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+      &kp KP_DOT     &kp N7        &kp N8        &kp N9       &kp PLUS          &kp LG(Z)    &kp LG(X)      &kp UP      &kp LG(V)     XXX  
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+      &kp SLASH      &kp N4        &kp N5        &kp N6       &kp MINUS         &kp LG(Z)    &kp LEFT      &kp DOWN      &kp RIGHT      XXX
+// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+       &kp DOT       &kp N1        &kp N2        &kp N3       &kp EQUAL         &kp LG(LS(Z))  &kp PG_UP    &kp PG_DN       XXX         XXX
+// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
+                                   &kp N0      &kp ENTER      &kp BSPC          ___           ___              ___
+//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(windows,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       &kp KP_DOT     &kp N7        &kp N8        &kp N9       &kp PLUS          &kp K_COPY    &kp K_CUT      &kp UP      &kp K_PASTE     XXX  
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -206,19 +218,7 @@ ZMK_LAYER(numpad,
 //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
-ZMK_LAYER(Function,
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      &kp PG_UP     &kp HOME       &kp UP        &kp END         XXX                XXX           XXX           XXX           XXX           XXX
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      &kp PG_DN     &kp LEFT      &kp DOWN      &kp RIGHT        XXX               XXX           XXX           XXX           XXX           XXX
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         XXX           XXX           XXX           XXX           XXX                XXX           XXX           XXX           XXX           XXX
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                     XXX           XXX           ___               ___           XXX           XXX
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-)
-
-ZMK_LAYER(System,
+ZMK_LAYER(sys,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         &boot       &bt BT_PRV    &kp C_PREV   &kp C_VOL_UP  &kp C_BRI_INC         XXX       &kp F7         &kp F8       &kp F9        &kp F12
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
