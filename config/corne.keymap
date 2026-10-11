@@ -135,8 +135,8 @@ ZMK_BEHAVIOR(bs_del, mod_morph,
         bindings = <BINDING1>, <BINDING2>; \
     )
 
-// tap: colon | shift + tap: semicolon
-SIMPLE_MORPH(colon_semi, SFT, &kp COLON, &kp SEMI)
+// tap: semi | shift + tap: colon
+SIMPLE_MORPH(colon_semi, SFT, &kp SEMI, &kp COLON)
 
 // tap: apos | shift + tap: quote
 //SIMPLE_MORPH(apos_quote, SFT, &kp APOS, &kp DQT)
